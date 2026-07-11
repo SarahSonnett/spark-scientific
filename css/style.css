@@ -1,0 +1,348 @@
+/* ============================================================
+   Spark Scientific — single-page site styles
+   Palette pulled from the logo:
+     Spark orange  #F47B20   (accents, CTAs — use sparingly)
+     Science blue  #1A7DC5   (brand base)
+     Deep navy     #10344F   (headings, footer)
+   ============================================================ */
+
+:root {
+  --orange:      #F47B20;
+  --orange-deep: #D96612;
+  --blue:        #1A7DC5;
+  --blue-deep:   #10344F;
+  --blue-tint:   #EFF6FC;
+  --ink:         #26333D;
+  --ink-soft:    #52626F;
+  --line:        #DCE6EE;
+  --bg:          #FFFFFF;
+
+  --font-head: "Poppins", "Segoe UI", sans-serif;
+  --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+
+  --radius: 12px;
+  --container: 1080px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+h1, h2, h3 { font-family: var(--font-head); color: var(--blue-deep); line-height: 1.2; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 700; }
+h2 { font-size: clamp(1.6rem, 3.2vw, 2.2rem); font-weight: 600; margin-bottom: 0.5em; }
+h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.4em; }
+
+a { color: var(--blue); }
+
+.eyebrow {
+  font-family: var(--font-head);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 0.8em;
+}
+.eyebrow-light { color: #FFB57E; }
+
+.section { padding: 88px 0; }
+.section-tint { background: var(--blue-tint); }
+.section-sub { color: var(--ink-soft); max-width: 46em; margin-bottom: 2.5em; }
+
+/* ---------------- Buttons ---------------- */
+.btn {
+  display: inline-block;
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 13px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+.btn-orange { background: var(--orange); color: #fff; }
+.btn-orange:hover { background: var(--orange-deep); transform: translateY(-1px); }
+.btn-ghost { color: var(--blue); border: 2px solid var(--blue); padding: 11px 26px; }
+.btn-ghost:hover { background: var(--blue); color: #fff; }
+.btn-small { padding: 8px 20px; font-size: 0.9rem; }
+.btn-big { font-size: 1.15rem; padding: 16px 36px; }
+
+/* ---------------- Header / nav ---------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+}
+.nav-links a:not(.btn) {
+  font-family: var(--font-head);
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--blue-deep);
+  text-decoration: none;
+}
+.nav-links a:not(.btn):hover { color: var(--orange); }
+
+/* ---------------- Wordmark (recreated logo) ---------------- */
+.wordmark {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 1.45rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.wm-spark { color: var(--orange); }
+.wm-sci { color: var(--blue); }
+.wm-sci-light { color: #9CC9E8; }
+.wm-i { position: relative; }
+.spark-dot {
+  position: absolute;
+  width: 0.52em;
+  height: 0.52em;
+  left: 50%;
+  top: -0.34em;
+  transform: translateX(-50%);
+  fill: var(--orange);
+}
+
+/* ---------------- Hero ---------------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 900px 500px at 85% 10%, #E4F0FA 0%, transparent 60%),
+    var(--bg);
+  padding: 110px 0 120px;
+}
+.hero-inner { position: relative; z-index: 2; max-width: 640px; }
+.hero h1 em { font-style: normal; color: var(--blue); }
+.hero-sub {
+  margin: 1.4em 0 2em;
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+  max-width: 36em;
+}
+.hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+
+.hero-motif {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 480px;
+  max-width: 34vw;
+  z-index: 1;
+}
+@media (max-width: 1080px) {
+  .hero-motif { display: none; }
+}
+.motif-lines line { stroke: var(--blue); stroke-opacity: 0.25; stroke-width: 2; }
+.motif-pts circle { fill: var(--blue); fill-opacity: 0.35; }
+.motif-spark { fill: var(--orange); }
+
+/* ---------------- Credentials strip ---------------- */
+.cred-strip {
+  background: var(--blue-deep);
+  color: #fff;
+  padding: 40px 0;
+}
+.cred-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+.cred { text-align: center; }
+.cred-num {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--orange);
+  line-height: 1.15;
+}
+.cred-label {
+  display: block;
+  font-size: 0.88rem;
+  color: #C8DCEC;
+  margin-top: 4px;
+}
+
+/* ---------------- Service cards ---------------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+.card {
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--blue);
+  border-radius: var(--radius);
+  padding: 28px 26px;
+  background: #fff;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-top-color 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(16, 52, 79, 0.10);
+  border-top-color: var(--orange);
+}
+.card p { color: var(--ink-soft); font-size: 0.95rem; }
+.card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: var(--blue-tint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+.card-icon svg {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: var(--blue);
+  stroke-width: 2;
+}
+.card-icon svg circle { fill: var(--orange); stroke: none; }
+
+/* ---------------- Process steps ---------------- */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 2.5em;
+}
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--orange);
+  color: #fff;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 14px;
+}
+.step p { color: var(--ink-soft); font-size: 0.95rem; }
+
+/* ---------------- About ---------------- */
+.about-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 56px;
+  align-items: start;
+}
+.about-text p { margin-bottom: 1em; color: var(--ink-soft); }
+.about-photo img,
+.photo-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius);
+  object-fit: cover;
+}
+.photo-placeholder {
+  background: var(--blue-tint);
+  border: 2px dashed var(--blue);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--blue);
+  font-family: var(--font-head);
+  font-weight: 500;
+}
+.photo-placeholder svg { width: 34px; height: 34px; fill: var(--orange); }
+
+.about-links {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  margin-top: 1.4em;
+}
+.about-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-head);
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--blue);
+}
+.about-links a:hover { color: var(--orange); }
+.about-links svg { width: 20px; height: 20px; fill: currentColor; }
+
+/* ---------------- Contact ---------------- */
+.contact { background: linear-gradient(160deg, var(--blue-deep) 0%, #14486E 100%); }
+.contact h2 { color: #fff; }
+.contact-inner { text-align: center; max-width: 640px; }
+.contact-sub { color: #C8DCEC; margin: 0 0 2em; }
+
+/* ---------------- Footer ---------------- */
+.site-footer {
+  background: #0B2437;
+  color: #9CB8CC;
+  padding: 28px 0;
+  font-size: 0.9rem;
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.footer-mark { font-family: var(--font-head); font-weight: 600; }
+.footer-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.footer-links a { color: #9CB8CC; text-decoration: none; }
+.footer-links a:hover { color: #fff; }
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 860px) {
+  .section { padding: 64px 0; }
+  .hero { padding: 72px 0 84px; }
+  .hero-motif { display: none; }
+  .cred-grid { grid-template-columns: repeat(2, 1fr); }
+  .steps { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  .about-photo { max-width: 320px; }
+  .nav-links li:not(:last-child) { display: none; }  /* keep just the CTA on phones */
+  .footer-inner { flex-direction: column; text-align: center; }
+}
