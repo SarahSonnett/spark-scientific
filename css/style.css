@@ -163,18 +163,19 @@ a { color: var(--blue); }
 
 .hero-motif {
   position: absolute;
-  right: 0;
+  right: 16px;
   top: 50%;
   transform: translateY(-50%);
-  width: 480px;
-  max-width: 34vw;
+  width: 520px;
+  /* never wider than the space right of the left-anchored hero text */
+  max-width: calc(100vw - 860px);
   z-index: 1;
 }
-@media (max-width: 1080px) {
+@media (max-width: 1180px) {
   .hero-motif { display: none; }
 }
 .motif-lines line { stroke: var(--blue); stroke-opacity: 0.25; stroke-width: 2; }
-.motif-trend { stroke: var(--orange); stroke-opacity: 0.45; stroke-width: 2.5; stroke-dasharray: 2 9; stroke-linecap: round; }
+.motif-converge line { stroke: var(--orange); stroke-opacity: 0.4; stroke-width: 2.5; stroke-dasharray: 2 9; stroke-linecap: round; }
 .motif-pts circle { fill: var(--blue); fill-opacity: 0.35; }
 .motif-spark { fill: var(--orange); }
 
@@ -186,6 +187,8 @@ a { color: var(--blue); }
   .motif-pts circle:nth-child(5) { animation-delay: 3.2s; }
   .motif-pts circle:nth-child(6) { animation-delay: 1.7s; }
   .motif-pts circle:nth-child(7) { animation-delay: 2.8s; }
+  .motif-pts circle:nth-child(8) { animation-delay: 2.1s; }
+  .motif-pts circle:nth-child(9) { animation-delay: 0.9s; }
   .motif-spark { animation: twinkle 5s ease-in-out infinite; }
   .motif-spark.spark-b { animation-delay: 1.8s; }
   .motif-spark.spark-c { animation-delay: 3.4s; }
