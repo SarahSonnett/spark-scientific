@@ -58,7 +58,19 @@ a { color: var(--blue); }
   color: var(--orange);
   margin-bottom: 0.8em;
 }
-.eyebrow::before { content: "\2726\00a0\00a0"; }  /* small spark before section labels */
+/* small delta spark before section labels; currentColor via mask so the
+   light contact-section variant tints automatically */
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 0.8em;
+  height: 0.8em;
+  margin-right: 0.5em;
+  vertical-align: -0.08em;
+  background: currentColor;
+  -webkit-mask: url('data:image/svg+xml;utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath d="M12 0.5 C11 8 7.5 14.5 3.5 21 C8.5 17.8 10.2 17.2 12 17.2 C13.8 17.2 15.5 17.8 20.5 21 C16.5 14.5 13 8 12 0.5 Z"/%3E%3C/svg%3E') no-repeat center / contain;
+  mask: url('data:image/svg+xml;utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath d="M12 0.5 C11 8 7.5 14.5 3.5 21 C8.5 17.8 10.2 17.2 12 17.2 C13.8 17.2 15.5 17.8 20.5 21 C16.5 14.5 13 8 12 0.5 Z"/%3E%3C/svg%3E') no-repeat center / contain;
+}
 
 ::selection { background: var(--orange); color: #fff; }
 .eyebrow-light { color: #FFB57E; }
@@ -190,6 +202,7 @@ a { color: var(--blue); }
   .motif-pts circle:nth-child(8) { animation-delay: 2.1s; }
   .motif-pts circle:nth-child(9) { animation-delay: 0.9s; }
   .motif-spark { animation: twinkle 5s ease-in-out infinite; }
+  .motif-spark.spark-main { animation-duration: 3.4s; }
   .motif-spark.spark-b { animation-delay: 1.8s; }
   .motif-spark.spark-c { animation-delay: 3.4s; }
 }
