@@ -132,7 +132,7 @@ a { color: var(--blue); }
   width: 0.52em;
   height: 0.52em;
   left: 50%;
-  top: -0.34em;
+  top: -0.22em;
   transform: translateX(-50%);
   fill: var(--orange);
 }
@@ -174,6 +174,7 @@ a { color: var(--blue); }
   .hero-motif { display: none; }
 }
 .motif-lines line { stroke: var(--blue); stroke-opacity: 0.25; stroke-width: 2; }
+.motif-trend { stroke: var(--orange); stroke-opacity: 0.45; stroke-width: 2.5; stroke-dasharray: 2 9; stroke-linecap: round; }
 .motif-pts circle { fill: var(--blue); fill-opacity: 0.35; }
 .motif-spark { fill: var(--orange); }
 
@@ -183,6 +184,8 @@ a { color: var(--blue); }
   .motif-pts circle:nth-child(3) { animation-delay: 2.3s; }
   .motif-pts circle:nth-child(4) { animation-delay: 0.6s; }
   .motif-pts circle:nth-child(5) { animation-delay: 3.2s; }
+  .motif-pts circle:nth-child(6) { animation-delay: 1.7s; }
+  .motif-pts circle:nth-child(7) { animation-delay: 2.8s; }
   .motif-spark { animation: twinkle 5s ease-in-out infinite; }
   .motif-spark.spark-b { animation-delay: 1.8s; }
   .motif-spark.spark-c { animation-delay: 3.4s; }
